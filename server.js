@@ -1,10 +1,22 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const passport = require("passport");
 const users = require("./routes/api/user");
 const profile = require("./routes/api/profile");
 const post = require("./routes/api/posts");
 
 const app = express();
+
+//Body Parser Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+//Passport middleware
+app.use(passport.initialize());
+
+//Passport config
+require("./config/passport")(passport);
 
 //DB config
 const db = require("./config/keys").mongoURL;
@@ -15,8 +27,10 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((error) => console.log(error));
 
-app.get("/", (req, res) => res.send("We can both love and build careers."));
-app.use("/api/users", users);
+app.get("/", (req, res) =>
+  res.send("I could eat a whole horse right now. I am so very hungry")
+);
+app.use("/api/user", users);
 app.use("/api/profile", profile);
 app.use("/api/posts", post);
 
