@@ -27,9 +27,7 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((error) => console.log(error));
 
-app.get("/", (req, res) =>
-  res.send("I could eat a whole horse right now. I am so very hungry")
-);
+app.get("/", (req, res) => res.send("Oya let's get cracking"));
 app.use("/api/user", users);
 app.use("/api/profile", profile);
 app.use("/api/posts", post);
