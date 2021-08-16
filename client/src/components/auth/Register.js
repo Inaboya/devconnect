@@ -19,7 +19,16 @@ export class Register extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-  UNSAFE_componentWillReceiveProps(nextProps) {
+  /* UNSAFE_componentWillReceiveProps(nextProps) {
+    if (nextProps.error) {
+      console.log(nextProps.errors);
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
+
+  */
+  static getDerivedStateFromProps(nextProps) {
     if (nextProps.error) {
       console.log(nextProps.errors);
       this.setState({ errors: nextProps.errors });
