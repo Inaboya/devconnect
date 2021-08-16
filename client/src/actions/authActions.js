@@ -1,10 +1,14 @@
 //Register user
+import { GET_ERRORS } from "./types";
+import axios from "axios";
 
-import { SET_CURRENT_USER } from "./types";
-
-export const registerUser = (userData) => {
-  return {
-    type: SET_CURRENT_USER,
-    payload: userData,
-  };
+export const registerUser = (userData) => (dispatch) => {
+  axios.post("api/user/register", userData).then((res) =>
+    console.log(res.data).catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    )
+  );
 };
