@@ -29,8 +29,7 @@ export class Register extends Component {
 
   */
   static getDerivedStateFromProps(nextProps) {
-    if (nextProps.error) {
-      console.log(nextProps.errors);
+    if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
   }
