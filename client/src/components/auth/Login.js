@@ -17,9 +17,9 @@ export class Login extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  static getDerivedStateFromProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.propTypes.history("/dashboard");
+      this.props.history("/dashboard");
     }
     if (nextProps.errors) {
       this.setState({

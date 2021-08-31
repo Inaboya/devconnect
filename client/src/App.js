@@ -9,7 +9,7 @@ import Login from "./components/auth/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import store from "./store";
 import { Provider } from "react-redux";
-import jwt_decode from "jwt-decode";
+import jwt_decoder from "jwt-decode";
 import setAuthToken from "./utilities/setAuthToken";
 import { SET_CURRENT_USER } from "./actions/types";
 import { setCurrentUser } from "./actions/authActions";
