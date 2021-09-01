@@ -13,6 +13,7 @@ import jwt_decoder from "jwt-decode";
 import setAuthToken from "./utilities/setAuthToken";
 import { SET_CURRENT_USER } from "./actions/types";
 import { setCurrentUser } from "./actions/authActions";
+import Dashboard from "./components/dashboard/Dashboard";
 
 //Check For Token
 
@@ -39,6 +40,7 @@ export class App extends Component {
             <div className="container">
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/dashboard" component={Dashboard} />
             </div>
             <Footer />
           </div>

@@ -81,11 +81,9 @@ export class Register extends Component {
                     type="email"
                     error={errors.email}
                     onChange={this.onChange}
+                    info="This site uses Gravatar so if you want a profile image, use
+                    a Gravatar email"
                   />
-                  <small className="form-text text-muted">
-                    This site uses Gravatar so if you want a profile image, use
-                    a Gravatar email
-                  </small>
                 </div>
                 <div className="form-group">
                   <TextFieldGroup

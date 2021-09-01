@@ -20,7 +20,7 @@ export class Login extends Component {
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history("/dashboard");
+      this.props.history.push("/dashboard");
     }
     if (nextProps.errors) {
       this.setState({
@@ -83,7 +83,7 @@ export class Login extends Component {
 }
 
 Login.propTypes = {
-  LoginUser: PropTypes.func.isRequired,
+  loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired,
 };
