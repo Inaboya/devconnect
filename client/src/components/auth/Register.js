@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import classnames from "classnames";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
+import TextFieldGroup from "../common/TextFieldGroup";
 
 export class Register extends Component {
   constructor() {
@@ -63,76 +64,48 @@ export class Register extends Component {
               </p>
               <form noValidate onSubmit={this.onSubmit}>
                 <div className="form-group">
-                  <input
-                    type="text"
-                    className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.name,
-                    })}
-                    placeholder="Full Name"
-                    value={this.state.name}
+                  <TextFieldGroup
+                    placeholder="FirstName || LastName"
+                    value={this.state.email}
                     name="name"
+                    type="text"
+                    error={errors.name}
                     onChange={this.onChange}
                   />
-                  {errors.name && (
-                    <div className={classnames("invalid-feedback")}>
-                      {errors.name}
-                    </div>
-                  )}
                 </div>
                 <div className="form-group">
-                  <input
-                    type="email"
-                    className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.email,
-                    })}
+                  <TextFieldGroup
                     placeholder="Email Address"
                     value={this.state.email}
-                    onChange={this.onChange}
                     name="email"
+                    type="email"
+                    error={errors.email}
+                    onChange={this.onChange}
                   />
-                  {errors.email && (
-                    <div className={classnames("invalid-feedback")}>
-                      {errors.email}
-                    </div>
-                  )}
                   <small className="form-text text-muted">
                     This site uses Gravatar so if you want a profile image, use
                     a Gravatar email
                   </small>
                 </div>
                 <div className="form-group">
-                  <input
-                    type="password"
-                    className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.password,
-                    })}
+                  <TextFieldGroup
                     placeholder="Password"
-                    name="password"
                     value={this.state.password}
+                    name="password"
+                    type="password"
+                    error={errors.password}
                     onChange={this.onChange}
                   />
-                  {errors.password && (
-                    <div className={classnames("invalid-feedback")}>
-                      {errors.password}
-                    </div>
-                  )}
                 </div>
                 <div className="form-group">
-                  <input
-                    type="password"
-                    className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.password2,
-                    })}
+                  <TextFieldGroup
                     placeholder="Confirm Password"
                     value={this.state.password2}
-                    onChange={this.onChange}
                     name="password2"
+                    type="password"
+                    error={errors.password2}
+                    onChange={this.onChange}
                   />
-                  {errors.password2 && (
-                    <div className={classnames("invalid-feedback")}>
-                      {errors.password2}
-                    </div>
-                  )}
                 </div>
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
